@@ -1,0 +1,12 @@
+@import "tailwindcss";
+/* 
+@theme {
+  --color-tomato-light: rgb(255, 81, 81);
+  --color-tomato-dark: rgb(204, 0, 0);
+  --color-tomato: rgb(255, 51, 51);
+} */
+
+
+/* for customise theme colors-
+1. vite config.js
+2. in index.css - @theme { --color-tomato-light: rgb(255, 81, 81); } */
