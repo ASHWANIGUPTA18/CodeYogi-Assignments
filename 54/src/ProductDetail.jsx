@@ -16,6 +16,9 @@ const[count,setCount]=useState(1);
     })
    },[id]
 )
+
+
+
 function handleCount(e){
     setCount(+(e.target.value));
 }
@@ -35,7 +38,7 @@ if(!product){
             <p className="text-gray-600">${product.price}</p>
             <p className="text-sm text-gray-500">ID: {product.id}</p>
             <input type="number" value={count} onChange={handleCount} className="border border-blue-500 rounded-xl"/>
-            <button onClick={onButtonclick} className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded">Add to Cart</button>
+            <button  onClick={onButtonclick} className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded">Add to Cart</button>
             <div className="flex justify-between mt-4">
                 <div>{id>1 &&
                     (<Link className="flex items-center" to={"/products/" + (parseInt(id)-1)}><HiArrowSmLeft className="text-2xl"/>Previous</Link>)}

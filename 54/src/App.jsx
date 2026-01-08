@@ -8,18 +8,19 @@ import ProductDetail from "./ProductDetail";
 import Navbar from "./Navbar";
 
 function App() {
- const savedDatastring=localStorage.getItem("cartData")||"{}";
- const savedData=JSON.parse(savedDatastring);
+  //  const savedDatastring=localStorage.getItem("cartData")||"{}";
+  //  const savedData=JSON.parse(savedDatastring);
 
 
-   let [cart,setCart]=useState(savedData);
+   let [cart,setCart]=useState({});
+   
   function handleCart(productId,count){
     const oldCount=cart[productId] || 0;
     const newCart={...cart,[productId]:oldCount+count};
     setCart(newCart);
      
-    const cartString=JSON.stringify(newCart);
-    localStorage.setItem("cartData",cartString);
+    // const cartString=JSON.stringify(newCart);
+    // localStorage.setItem("cartData",cartString);
   }
   return (
     <>
