@@ -12,12 +12,12 @@ function Navbar({productCount}) {
         <span className="text-orange-400 text-2xl">〰</span>
       </Link>
       </div>
-      <div>
+      <Link to="/cart">
         <div className="flex items-center">
         <h1 className="text-xl font-bold">Cart Items: {productCount}</h1>
       <HiOutlineShoppingCart className="text-6xl" />
       </div>
-      </div>
+      </Link>
     </div>
     </>
   );

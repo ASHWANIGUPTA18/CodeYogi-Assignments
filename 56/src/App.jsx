@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "./Button";
 import Login from "./Login";
 import A from "./A";
+import SignUp from "./SignUp";
 function App() {
 
 // const [amount,setAmount]=useState(0);
@@ -32,8 +33,8 @@ function App() {
     </div> */}
 
 
-    <Login />
-
+    {/* <Login /> */}
+     <SignUp />
     {/* <A/> */}
     </>
   );

@@ -6,6 +6,7 @@ import ProductListPage from "./ProductListPage";
 import ProductInfo from "./ProductInfo";
 import ProductDetail from "./ProductDetail";
 import Navbar from "./Navbar";
+import CartPage from "./CartPage";
 
 function App() {
   //  const savedDatastring=localStorage.getItem("cartData")||"{}";
@@ -30,6 +31,7 @@ function App() {
       <Route path="/productlistpage" element={<ProductListPage />} />
       <Route path="/productinfo" element={<ProductInfo />} />
       <Route path="/products/:id" element={<ProductDetail onAddToCart={handleCart} />} />
+      <Route path="/cart" element={<CartPage cart={cart} />} />
     </Routes>
     </>
   );
