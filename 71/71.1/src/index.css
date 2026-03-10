@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #0f172a;
+  background-color: #f8fafc;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.auth-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(38% 42% at 12% 14%, #274dd6 0%, transparent 60%),
+    radial-gradient(30% 32% at 15% 80%, #264ac8 0%, transparent 60%),
+    radial-gradient(28% 30% at 88% 24%, #1f3fb7 0%, transparent 60%),
+    radial-gradient(120% 140% at 60% 60%, #1e3aa8 0%, #1a3a9b 40%, #1b38a1 80%);
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: #eef2ff;
+  text-align: center;
+  padding: 24px;
+}
+
+.auth-logo {
+  font-size: 42px;
+}
+
+.auth-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.auth-subtitle {
+  margin: 0;
+  color: rgba(230, 235, 255, 0.82);
+  font-size: 14px;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.4px solid rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #eef2ff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.auth-input:focus-within {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.auth-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.auth-input input::placeholder {
+  color: rgba(230, 235, 255, 0.9);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f3cb4;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.auth-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+}
+
+.auth-button:disabled {
+  background: #e7e9f7;
+  color: #7b85c6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #eef2ff;
+}
+
+.auth-link {
+  color: #eef2ff;
+  text-decoration: underline;
+}
+
+.auth-error {
+  color: #ffbcbc;
+  font-size: 13px;
+  margin-top: -4px;
+  padding-left: 4px;
+  text-align: left;
+}

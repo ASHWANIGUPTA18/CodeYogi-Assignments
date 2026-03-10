@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Tracker</title>
+  <style>
+    :root {
+      --happy: #b94a34;
+      --sad: #1c4fb9;
+      --text: #ffffff;
+      --bg: #f4f4f4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: #222;
+      padding: 24px;
+    }
+
+    .banner {
+      padding: 12px 16px;
+      color: var(--text);
+      font-weight: bold;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .happy-bar {
+      background: var(--happy);
+    }
+
+    .sad-bar {
+      background: var(--sad);
+    }
+
+    .card {
+      background: #fff;
+      padding: 18px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      max-width: 420px;
+    }
+
+    .question {
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 4px;
+      padding: 8px 14px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-happy {
+      background: var(--happy);
+    }
+
+    .btn-sad {
+      background: var(--sad);
+    }
+  </style>
+  <script src="https://unpkg.com/redux@4.2.1/dist/redux.min.js"></script>
+</head>
+<body>
+  <div id="happyBar" class="banner happy-bar">You were happy 0 times</div>
+  <div id="sadBar" class="banner sad-bar">You were sad 0 times</div>
+
+  <div class="card">
+    <div class="section">
+      <div class="question">Are you happy?</div>
+      <button id="happyBtn" class="btn btn-happy">Yes</button>
+    </div>
+    <div class="section">
+      <div class="question">Are you sad?</div>
+      <button id="sadBtn" class="btn btn-sad">Yes</button>
+    </div>
+  </div>
+
+  <script>
+    const initialState = { happyCount: 0, sadCount: 0 };
+
+    function moodReducer(state = initialState, action) {
+      switch (action.type) {
+        case 'HAPPY':
+          return { ...state, happyCount: state.happyCount + 1 };
+        case 'SAD':
+          return { ...state, sadCount: state.sadCount + 1 };
+        default:
+          return state;
+      }
+    }
+
+    const store = Redux.createStore(moodReducer);
+
+    function render() {
+      const { happyCount, sadCount } = store.getState();
+      document.getElementById('happyBar').textContent = `You were happy ${happyCount} time${happyCount === 1 ? '' : 's'}`;
+      document.getElementById('sadBar').textContent = `You were sad ${sadCount} time${sadCount === 1 ? '' : 's'}`;
+    }
+
+    store.subscribe(render);
+    render();
+
+    document.getElementById('happyBtn').addEventListener('click', () => {
+      store.dispatch({ type: 'HAPPY' });
+    });
+
+    document.getElementById('sadBtn').addEventListener('click', () => {
+      store.dispatch({ type: 'SAD' });
+    });
+  </script>
+</body>
+</html>
